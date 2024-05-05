@@ -19,14 +19,13 @@
         <!--Navbar-->
         <div class="Navbar">
             <a class="active" href="#Home">Home</a>
+            <a href="#Slideshow">Slideshow</a>
             <a href="#About">About</a>
             <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
 
         <!--Break inserted to add space between navbar and the first heading-->
-        <br>
-        <br>
 
         <!--Background video-->
         <div id="Home">
@@ -55,11 +54,63 @@
             </strong>
         </div>
 
+        <!-- Slideshow -->
+        <div id="Slideshow">
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+                    <!-- Slide 1 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/InShot_20211218_202656223.jpg" alt="Picture of author">
+                        <div class="text">I'm available to assist you on your project!</div>
+                    </div>
+                    <!-- Slide 2 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, and JS logos">
+                        <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!-- Slide 3 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/Python.png" alt="Python logo">
+                        <div class="text">the popular programming language Python,</div>
+                    </div>
+                    <!-- Slide 4 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/C_Sharp_and_Dot_NET(1).png" alt="C# logo">
+                        <div class="text">C#, .NET Framework, ASP.NET, MVC, </div>
+                    </div>
+                    <!-- Slide 5 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/SQL_and_Database.jpg" alt="SQL logo">
+                        <div class="text">back end development, databases and SQL.</div>
+                    </div>
+                    <!-- Slide 6 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/laptop_2.jpg" alt="Laptop">
+                        <div class="text"><a class="white-text contact" onclick="openform()">Contact me now!</a></div>
+                    </div>
+                    <!-- Pervious and next buttons -->
+                    <a class="Pervious" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+
+                <!-- Slideshow dots -->
+                <div style="text-align: center;">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+
         <!--About section-->
         <div class="Row" id="About">
             <!--Left column-->
             <div class="Column_2">
-                <img src="./img/pexels-daniel.jpg" alt="Laptop on rasied mount">
+                <img src="./img/pto2.jpg" alt="computer">
             </div>
             <!--Right column-->
             <div class="Column_1">
@@ -79,37 +130,34 @@
             <!--Left column-->
             <div class="Column_1">
                 <h1>GitHub</h1>
-                <p>
-                    You can view my coding projects on my GitHub profile here:
+                <p>You can view my coding projects on my GitHub profile here:
                     <br>
                     <p class="center"><a href="https://github.com/optkev" target="_blank">optkev GitHub</a></p>
                 </p>
             </div>
             <!--Right column-->
             <div class="Column_2">
-                <a href="https://github.com/optkev"  target="_blank"><img src="./img/github.png" alt="GitHub Logo"></a>
+                <a href="https://github.com/optkev"  target="_blank"><img src="./img/github2.png" alt="GitHub Logo"></a>
             </div>
         </div>
 
-        <!--Contact section-->
-        <div class="Row" id="Contact">
-         
-            <!--Contact image, left column-->
-            <div class="Column_2 Column_tall">
-                <img src="./img/email.png" alt="Contact_Image">
-            </div>
+        <!--Contact form -->
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/f/xgegnnrg" method="POST" class="form-container">
+                    <h1>Contact</h1>
+                    <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Please enter your name here" name="name" required>
+                    <label for="phone"><b>Phone</b></label>
+                        <input type="text" placeholder="Please enter your phone number here" name="phone">
+                    <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Please enter your email here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                        <input type="text" placeholder="Please enter your message here" name="message">
 
-            <!--Contact form, right column-->
-            <div class="Column_1" id="Column_tall">
-                <h1>Contact</h1>
-                <form action="https://formspree.io/f/xgegnnrg" method="POST">
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                     <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please enter your message here">
-                        <input type="submit" value="SUBMIT">
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
@@ -121,5 +169,6 @@
                 <br>
             </p>
         </footer>
+        <script src="JS/portfolio.js"></script>
     </body>
 </html>
